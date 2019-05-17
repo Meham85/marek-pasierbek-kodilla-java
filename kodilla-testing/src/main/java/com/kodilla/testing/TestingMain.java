@@ -17,12 +17,19 @@ public class TestingMain {
         Calculator calculator = new Calculator();
 
 
-        int recultCalc = calculator.addAToB(5,6);
+        int resultCalc = calculator.addAToB(5,6);
+        int resultCalc2 = calculator.subtractAFromB(resultCalc, 6);
 
-        if (recultCalc == 11) {
-            System.out.println("Calc test OK");
+        if (resultCalc == 11) {
+            System.out.println("Calc add test OK");
         } else {
-            System.out.println("Calc test Error!");
+            System.out.println("Calc add test Error!");
+        }
+
+        if (resultCalc2 == 5) {
+            System.out.println("Calc sub test OK");
+        } else {
+            System.out.println("Calc sub test Error!");
         }
     }
 
