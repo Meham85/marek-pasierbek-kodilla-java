@@ -26,14 +26,14 @@ public class CollectionTestSuite {
 
 
         OddNumbersExterminator evenList = new OddNumbersExterminator();
-        evenList.exterminate(mixedList);
+        ArrayList<Integer> afterMethod = evenList.exterminate(mixedList);
 
-        ArrayList<Integer> testList =  new ArrayList<Integer>();
+        ArrayList<Integer> testList = new ArrayList<Integer>();
         testList.add(2);
         testList.add(6);
 
 
-        Assert.assertEquals(testList, evenList);
+        Assert.assertEquals(testList, afterMethod);
     }
     @Test
     public void testOddNumbersExterminatorEmptyList()
@@ -41,9 +41,11 @@ public class CollectionTestSuite {
     {
         ArrayList<Integer> mixedList = new ArrayList<Integer>();
 
-        OddNumbersExterminator tester = new OddNumbersExterminator();
-        tester.exterminate(mixedList);
+        OddNumbersExterminator evenList = new OddNumbersExterminator();
+        ArrayList<Integer> afterMethod = evenList.exterminate(mixedList);
 
-        Assert.assertEquals(mixedList, tester);
+        ArrayList<Integer> testList = new ArrayList<Integer>();
+
+        Assert.assertEquals(testList, afterMethod);
     }
         }
