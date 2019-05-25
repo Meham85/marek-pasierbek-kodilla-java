@@ -20,30 +20,30 @@ public class CollectionTestSuite {
 
         ArrayList<Integer> mixedList = new ArrayList<Integer>();
         mixedList.add(2);
-        mixedList.add(4);
+        mixedList.add(3);
         mixedList.add(5);
         mixedList.add(6);
-        mixedList.add(78);
-        mixedList.add(-12);
-        mixedList.add(13);
-        mixedList.add(2670);
 
-        OddNumbersExterminator tester = new OddNumbersExterminator();
-        tester.exterminate(mixedList);
-        int a = mixedList.get(3);
-        int b = tester.exterminate(mixedList).get(2);
-        Assert.assertEquals(a, b);
+
+        OddNumbersExterminator evenList = new OddNumbersExterminator();
+        evenList.exterminate(mixedList);
+
+        ArrayList<Integer> testList =  new ArrayList<Integer>();
+        testList.add(2);
+        testList.add(6);
+
+
+        Assert.assertEquals(testList, evenList);
     }
-    @Test(expected = IllegalArgumentException.class)
-    public void testOddNumbersExterminatorEmptyList() throws Exception
+    @Test
+    public void testOddNumbersExterminatorEmptyList()
 
     {
         ArrayList<Integer> mixedList = new ArrayList<Integer>();
 
         OddNumbersExterminator tester = new OddNumbersExterminator();
         tester.exterminate(mixedList);
-        int a = mixedList.get(0);
-        int b = tester.exterminate(mixedList).get(0);
-        Assert.assertEquals(a, b);
+
+        Assert.assertEquals(mixedList, tester);
     }
         }
