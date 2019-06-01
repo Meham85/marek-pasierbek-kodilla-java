@@ -8,9 +8,7 @@ public class ShapeCollector  {
     public ArrayList<Shape>  figureArrayList = new ArrayList<Shape>();
 
     public void addFigure(Shape shape) {
-        boolean resultClass = shape instanceof Shape;
-        if (resultClass != true)
-        throw new IllegalArgumentException("Invalid Class name");
+
         figureArrayList.add(shape);
     }
 
