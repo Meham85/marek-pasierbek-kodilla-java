@@ -2,6 +2,37 @@ package com.kodilla.testing.forum.statistics;
 
 public class StaticticsCollector {
     Statistics statistics;
+    private int postCount;
+    private int comentsCount;
+    private int usersCount;
+    private double avgPostsPerUser;
+    private double avgCommentsPerUser;
+    private double comentsVsposts;
+
+    public int getUsersCount() {
+        return usersCount;
+    }
+
+    public int getPostCount() {
+        return postCount;
+    }
+
+    public int getComentsCount() {
+        return comentsCount;
+    }
+
+    public double getAvgPostsPerUser() {
+        return avgPostsPerUser;
+    }
+
+    public double getAvgCommentsPerUser() {
+        return avgCommentsPerUser;
+    }
+
+    public double getComentsVsposts() {
+        return comentsVsposts;
+    }
+
     public StaticticsCollector(Statistics statistics){
         this.statistics = statistics;
     }
