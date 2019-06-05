@@ -1,16 +1,10 @@
 package com.kodilla.testing.forum.statistics;
 
-public class StatisticsCollector {
-    /*Statistics statistics; */
+public class StaticticsCollector {
 
-    public StatisticCollector(Statistics statistic){
-        this.statistics = statistics;
-    }
-
-    /* Statistics statistics; */
     private int postCount;
     private int comentsCount;
-    private int usersCount;
+    public int usersCount;
     private double avgPostsPerUser;
     private double avgCommentsPerUser;
     private double comentsVsposts;
@@ -39,11 +33,9 @@ public class StatisticsCollector {
         return comentsVsposts;
     }
 
-    /* public StaticticsCollector(Statistics statistics){
-        this.statistics = statistics; */
 
     public void  calculateAdvStatistics(Statistics statistics){
-        Statistics statistics = new Statistics<Statistics>; /* nie tworze obiektu bo dostarczy go interface z mockiem */
+        /* Statistics statistics = new Statistics<Statistics>;  nie tworze obiektu bo dostarczy go interface z mockiem */
         int postCount = statistics.postsCount() /* metoda z interfacu ktora zwroci ilosc postow */;
         int comentsCount = statistics.commentsCount();
         int usersCount = statistics.usersNames().size();
