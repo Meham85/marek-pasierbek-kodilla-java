@@ -1,7 +1,13 @@
 package com.kodilla.testing.forum.statistics;
 
-public class StaticticsCollector {
-    Statistics statistics;
+public class StatisticsCollector {
+    /*Statistics statistics; */
+
+    public StatisticCollector(Statistics statistic){
+        this.statistics = statistics;
+    }
+
+    /* Statistics statistics; */
     private int postCount;
     private int comentsCount;
     private int usersCount;
@@ -33,12 +39,12 @@ public class StaticticsCollector {
         return comentsVsposts;
     }
 
-    public StaticticsCollector(Statistics statistics){
-        this.statistics = statistics;
-    }
-    public void  calculateAdvStatistics(Statistics statistics){
+    /* public StaticticsCollector(Statistics statistics){
+        this.statistics = statistics; */
 
-        int postCount = statistics.postsCount();
+    public void  calculateAdvStatistics(Statistics statistics){
+        Statistics statistics = new Statistics<Statistics>; /* nie tworze obiektu bo dostarczy go interface z mockiem */
+        int postCount = statistics.postsCount() /* metoda z interfacu ktora zwroci ilosc postow */;
         int comentsCount = statistics.commentsCount();
         int usersCount = statistics.usersNames().size();
         double avgPostsPerUser = postCount / usersCount;
@@ -47,3 +53,4 @@ public class StaticticsCollector {
 
     }
 }
+

@@ -22,7 +22,7 @@ public class StatisticsTestSuite {
         when(statisticsMock.usersNames()).thenReturn(userNamesStub);
         when(statisticsMock.commentsCount()).thenReturn(2);
         when(statisticsMock.postsCount()).thenReturn(4);
-        StaticticsCollector staticticsCollector = new StaticticsCollector(statisticsMock); /*obiekt klasy Collector, ktory przyjal obiekt interfacu Statisick po mockowaniu */
+        /* StaticticsCollector staticticsCollector = new StaticticsCollector(statistics); /*obiekt klasy Collector, ktory przyjal obiekt interfacu Statisick po mockowaniu */
         staticticsCollector.calculateAdvStatistics(statisticsMock);
 
         Assert.assertEquals(2, staticticsCollector.getUsersCount());
