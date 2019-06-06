@@ -22,7 +22,7 @@ public class ShapeCollector  {
     }
     public Shape getFigure(int index) {
         if (index < 0 || index > figureArrayList.size()) {
-            System.out.println("This figure is not out array element");
+            Figure = null;
         } else {
             Figure = figureArrayList.get(index);
         }
