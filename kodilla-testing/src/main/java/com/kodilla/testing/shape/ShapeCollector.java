@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.*;
 import java.lang.*;
 public class ShapeCollector  {
-    Shape Figure;
+
     public ArrayList<Shape>  figureArrayList = new ArrayList<Shape>();
 
     public void addFigure(Shape shape) {
@@ -22,11 +22,11 @@ public class ShapeCollector  {
     }
     public Shape getFigure(int index) {
         if (index < 0 || index > figureArrayList.size()) {
-            Figure = null;
+            return null;
         } else {
-            Figure = figureArrayList.get(index);
+           return figureArrayList.get(index);
         }
-        return Figure;
+
     }
 
    public void showFigures() {
