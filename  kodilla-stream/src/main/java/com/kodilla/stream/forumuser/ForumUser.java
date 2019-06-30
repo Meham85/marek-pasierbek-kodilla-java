@@ -30,7 +30,7 @@ public final class ForumUser {
         return dateOfBirth;
     }
 
-    public ForumUser(int userId, String userName, char sex, int year, int month, int day, int postsCount) {
+    public  ForumUser(final int userId, final String userName, final char sex, final int year, final int month, final int day, final int postsCount) {
         this.userId = userId;
         this.userName = userName;
         this.sex = sex;
