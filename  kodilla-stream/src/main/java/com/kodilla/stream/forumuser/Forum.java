@@ -14,7 +14,7 @@ public class Forum {
         forumUser.add(new ForumUser(3,"Magda",'F',1982,11,26,12));
         forumUser.add(new ForumUser(4,"Miłosław",'M',2015,11,24,122));
         forumUser.add(new ForumUser(5,"Mikołaj",'M',2009,5,14,66));
-        forumUser.add(new ForumUser(6,"Kot Chruścik",'M',700,6,30,0));
+        forumUser.add(new ForumUser(6,"Kot Chruścik",'M',700,6,30,10));
 
     }
 
