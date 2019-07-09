@@ -7,7 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-public class FilereaderWithoutHandling {
+class FilereaderWithoutHandling {
 
     public void readFile() throws IOException {
 
