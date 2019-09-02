@@ -1,5 +1,6 @@
 package challenges.food2door.distributors;
 
+import challenges.food2door.InformationsFromOrderDTO;
 import challenges.food2door.Order;
 import challenges.food2door.OrderDTO;
 
@@ -20,11 +21,17 @@ public class ExtraFoodShop implements FoodDistributor {
             System.out.println("Zamówienie numer " + order.getOrderNumber() + " zostało zrealizowane!");
             System.out.println("Twój numer karty rabatowej " + DiscountCardNumber + " przyznany rabat = " + Discount + "%");
             return new OrderDTO(true,
-                    order);
+                    order.getOrderTime(),
+                    order.getFoodDistributor(),
+                    order.getProduct(),
+                    order.getQuantity());
         } else {
             System.out.println("Zamówienie " + order.getOrderNumber() + " nie zostało zrealizowane. Skontaktuj się z extra@food.shop\n tel: 03454332\n");
             return new OrderDTO(false,
-                    order);
+                    order.getOrderTime(),
+                    order.getFoodDistributor(),
+                    order.getProduct(),
+                    order.getQuantity());
         }
     }
 

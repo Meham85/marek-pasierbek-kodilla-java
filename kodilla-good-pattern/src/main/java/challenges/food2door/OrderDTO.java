@@ -7,21 +7,40 @@ import java.time.LocalDateTime;
 
 public class OrderDTO {
     private boolean isOrdered;
-   private Order order;
+    private LocalDateTime orderTime;
+    private FoodDistributor foodDistributor;
+    private Product product;
+    private int quantity;
 
     public OrderDTO(final boolean isOrdered,
-                    final Order order) {
+                    final LocalDateTime orderTime,
+                    final FoodDistributor foodDistributor,
+                    final Product product,
+                    final int quantity) {
         this.isOrdered = isOrdered;
-        this.order = order;
+        this.orderTime = orderTime;
+        this.foodDistributor = foodDistributor;
+        this.product = product;
+        this.quantity = quantity;
     }
 
     public boolean isOrdered() {
         return isOrdered;
     }
 
-    public Order getOrder() {
-        return order;
+    public LocalDateTime getOrderTime() {
+        return orderTime;
     }
 
+    public FoodDistributor getFoodDistributor() {
+        return foodDistributor;
+    }
 
+    public Product getProduct() {
+        return product;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
 }

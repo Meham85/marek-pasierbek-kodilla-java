@@ -15,11 +15,17 @@ public class GlutenFreeShop implements FoodDistributor {
         if (isOrdered) {
             System.out.println("Zamówienie numer " + order.getOrderNumber() + " zostało zrealizowane!");
             return new OrderDTO(true,
-                    order);
+                    order.getOrderTime(),
+                    order.getFoodDistributor(),
+                    order.getProduct(),
+                    order.getQuantity());
         } else {
             System.out.println("Zamówienie " + order.getOrderNumber() + " nie zostało zrealizowane. Skontaktuj się z glutenfreeshop@wp.com\n. tel: 50943304\n");
             return new OrderDTO(false,
-                    order);
+                    order.getOrderTime(),
+                    order.getFoodDistributor(),
+                    order.getProduct(),
+                    order.getQuantity());
         }
     }
 
