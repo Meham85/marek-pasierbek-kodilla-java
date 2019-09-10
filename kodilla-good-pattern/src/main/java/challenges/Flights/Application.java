@@ -57,9 +57,9 @@ final class Application {
         final FlightSearchService flightSearchService = new FlightSearchServiceImpl(flightBoard);
         System.out.printf("*** Lot z %s ***%n", jfkAirport);
         flightSearchService.findAllFlightsFromCity(new FlightSearchRequest(jfkAirport)).forEach(System.out::println);
-        System.out.printf("*** Lot do %s ***%n", svoAirport);
+        System.out.printf("*** Lot do %s ***%n", sydAirport);
         flightSearchService.findAllFlightsToCity(new FlightSearchRequest(svoAirport)).forEach(System.out::println);
-        System.out.printf("*** Lot przez %s ***%n", null);
+        System.out.printf("*** Lot przez %s ***%n", sydAirport);
         flightSearchService.findAllFlightsThroughCity(new FlightSearchRequest(sydAirport)).forEach(System.out::println);
     }
 }
