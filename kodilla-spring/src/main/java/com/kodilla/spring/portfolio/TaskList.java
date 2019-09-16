@@ -12,7 +12,7 @@
 
         public boolean addTask(String task) {
         if (task == null || task.isEmpty()) {
-        throw new IllegalArgumentException("valueless task");
+        throw new IllegalArgumentException("nieprawidłowa wartość task");
         }
         return tasks.add(task);
         }
