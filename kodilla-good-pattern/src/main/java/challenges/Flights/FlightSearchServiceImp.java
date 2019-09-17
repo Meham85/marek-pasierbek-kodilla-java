@@ -29,6 +29,18 @@ final class FlightSearchServiceImpl implements FlightSearchService {
                 .filter(flight -> flight.getDepartureTime().isAfter(LocalDateTime.now()))
                 .collect(Collectors.toSet());
     }
+    public Set<Flight> findAllFlightsFromCityToCity(final FlightSearchRequest flightSearchRequest) {
+        final Airport arrivalAirport = flightSearchRequest.getAirport();
+        System.out.println("lecimy z " + arrivalAirport);
+        final Airport departureAirport = flightSearchRequest.getAirport();
+        System.out.println("lecimy do " + departureAirport);
+        return flightBoard.getFlights().stream()
+                .filter(flight -> flight.getArrivalAirport().equals(arrivalAirport))
+                .filter(flight -> flight.getDepartureTime().isAfter(LocalDateTime.now()))
+                .filter(flight -> flight.getDepartureAirport().equals(departureAirport))
+                .filter(flight -> flight.getDepartureTime().isAfter(LocalDateTime.now()))
+                .collect(Collectors.toSet());
+    }
 
     @Override
     public Set<Flight> findAllFlightsThroughCity(final FlightSearchRequest flightSearchRequest) {
@@ -60,5 +72,6 @@ final class FlightSearchServiceImpl implements FlightSearchService {
 
         flightsToCity.addAll(flightsFromCity);
         return Collections.unmodifiableSet(flightsToCity);
+
     }
 }

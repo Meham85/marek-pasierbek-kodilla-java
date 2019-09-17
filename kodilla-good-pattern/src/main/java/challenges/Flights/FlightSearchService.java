@@ -6,4 +6,5 @@ interface FlightSearchService {
     Set<Flight> findAllFlightsToCity(final FlightSearchRequest flightSearchRequest);
     Set<Flight> findAllFlightsFromCity(final FlightSearchRequest flightSearchRequest);
     Set<Flight> findAllFlightsThroughCity(final FlightSearchRequest flightSearchRequest);
+    Set<Flight> findAllFlightsFromCityToCity(final FlightSearchRequest flightSearchRequest);
 }
