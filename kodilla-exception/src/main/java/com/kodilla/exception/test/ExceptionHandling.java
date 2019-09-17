@@ -9,7 +9,7 @@ public class ExceptionHandling {
         } catch (Exception e) {
             System.out.println("catch");
         } finally {
-            System.out.println("test have ended");
+            System.out.println("test have ended - wyjątek obsłużony");
         }
     }
 
