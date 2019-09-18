@@ -53,14 +53,14 @@ final class FlightSearchServiceImpl implements FlightSearchService {
         System.out.println(" z " + departureAirport);
         wyniki = flightBoard.getFlights();
         for(Flight lot: wyniki) {
-            if (lot.getArrivalAirport() == flightSearchRequest.getarriveAirport() || lot.getDepartureAirport() == flightSearchRequest.getDepartureAirport()) {
+            if (lot.getArrivalAirport().equals(flightSearchRequest.getarriveAirport()) || lot.getDepartureAirport().equals(flightSearchRequest.getDepartureAirport())) {
                 wyniki2.add(lot);
             }
         }
         int i =0; int j=0;
         for( i=0;  i<wyniki2.size(); i++){
             for( j=0 ;  j<wyniki2.size(); j++) {
-                if(wyniki2.get(i).getDepartureAirport() == wyniki2.get(j).getArrivalAirport()){
+                if(wyniki2.get(i).getDepartureAirport().equals(wyniki2.get(j).getArrivalAirport())){
                    wyniki3.add(wyniki2.get(i));
                    wyniki3.add(wyniki2.get(j));
                 }
