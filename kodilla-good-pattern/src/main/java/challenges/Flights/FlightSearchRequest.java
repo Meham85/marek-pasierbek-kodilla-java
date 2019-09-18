@@ -1,23 +1,29 @@
 package challenges.Flights;
 
 final class FlightSearchRequest {
-    static Airport airport;
-   static Airport arriveAirport;
-    static Airport departureAirport;
+    Airport airport;
+    Airport arriveAirport;
+    Airport departureAirport;
 
 
     /**private final Airport arriveAirport;
     private final Airport departureAirport; **/
 
-    FlightSearchRequest(final Airport airport) {
+    /** FlightSearchRequest(Airport airport) {
         this.airport = airport;
-    }
-    FlightSearchRequest(final Airport arriveAirport ,final Airport departureAirport ) {
+    } **/
+    FlightSearchRequest(  Airport departureAirport , Airport arriveAirport ) {
         this.arriveAirport = arriveAirport;
         this.departureAirport = departureAirport;
      }
 
     Airport getAirport() {
         return airport;
+    }
+    Airport getarriveAirport() {
+        return arriveAirport;
+    }
+    Airport getDepartureAirport() {
+        return departureAirport;
     }
 }

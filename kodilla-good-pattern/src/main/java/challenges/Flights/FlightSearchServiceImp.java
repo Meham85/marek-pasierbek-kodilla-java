@@ -1,12 +1,15 @@
 package challenges.Flights;
 
 import java.time.LocalDateTime;
-import java.util.Collections;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 final class FlightSearchServiceImpl implements FlightSearchService {
     private final FlightBoard flightBoard;
+
+    Set<Flight> wyniki = new HashSet<>();
+    List<Flight> wyniki2 = new ArrayList<>();
+    ArrayList<Flight> wyniki3 = new ArrayList<>();
 
     FlightSearchServiceImpl(final FlightBoard flightBoard) {
         this.flightBoard = flightBoard;
@@ -30,17 +33,46 @@ final class FlightSearchServiceImpl implements FlightSearchService {
                 .collect(Collectors.toSet());
     }
     public Set<Flight> findAllFlightsFromCityToCity(final FlightSearchRequest flightSearchRequest) {
-        final Airport arrivalAirport = flightSearchRequest.getAirport();
-        System.out.println("lecimy z " + arrivalAirport);
-        final Airport departureAirport = flightSearchRequest.getAirport();
-        System.out.println("lecimy do " + departureAirport);
+        final Airport arrivalAirport = flightSearchRequest.getarriveAirport();
+        System.out.println("lecimy do " + arrivalAirport);
+        final Airport departureAirport = flightSearchRequest.getDepartureAirport();
+        System.out.println("z  " + departureAirport);
         return flightBoard.getFlights().stream()
                 .filter(flight -> flight.getArrivalAirport().equals(arrivalAirport))
-                .filter(flight -> flight.getDepartureTime().isAfter(LocalDateTime.now()))
+                /** .filter(flight -> flight.getDepartureTime().isAfter(LocalDateTime.now())) **/
                 .filter(flight -> flight.getDepartureAirport().equals(departureAirport))
-                .filter(flight -> flight.getDepartureTime().isAfter(LocalDateTime.now()))
+                /** .filter(flight -> flight.getDepartureTime().isAfter(LocalDateTime.now())) **/
                 .collect(Collectors.toSet());
+
     }
+
+    public ArrayList<Flight> findAllFlightsFromCityToCityThroughCity(final FlightSearchRequest flightSearchRequest) {
+        final Airport arrivalAirport = flightSearchRequest.getarriveAirport();
+        System.out.println("lecimy do " + arrivalAirport);
+        final Airport departureAirport = flightSearchRequest.getDepartureAirport();
+        System.out.println(" z " + departureAirport);
+        wyniki = flightBoard.getFlights();
+        for(Flight lot: wyniki) {
+            if (lot.getArrivalAirport() == flightSearchRequest.getarriveAirport() || lot.getDepartureAirport() == flightSearchRequest.getDepartureAirport()) {
+                wyniki2.add(lot);
+            }
+        }
+        int i =0; int j=0;
+        for( i=0;  i<wyniki2.size(); i++){
+            for( j=0 ;  j<wyniki2.size(); j++) {
+                if(wyniki2.get(i).getDepartureAirport() == wyniki2.get(j).getArrivalAirport()){
+                   wyniki3.add(wyniki2.get(i));
+                   wyniki3.add(wyniki2.get(j));
+                }
+            }
+
+
+        }
+        return wyniki3;
+
+    }
+
+
 
     @Override
     public Set<Flight> findAllFlightsThroughCity(final FlightSearchRequest flightSearchRequest) {

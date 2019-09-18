@@ -23,6 +23,12 @@ final class Application {
                 .departureTime(LocalDateTime.of(2019, 9, 19, 5, 5))
                 .arrivalTime(LocalDateTime.of(2019, 9, 19, 6, 5))
                 .build();
+        final Flight flightSydToWar11 = new FlightImpl.Builder(11)
+                .departureAirport(sydAirport)
+                .arrivalAirport(warAirport)
+                .departureTime(LocalDateTime.of(2019, 9, 19, 5, 5))
+                .arrivalTime(LocalDateTime.of(2019, 9, 19, 6, 5))
+                .build();
         final Flight flightWarToSyd7 = new FlightImpl.Builder(7)
                 .departureAirport(warAirport)
                 .arrivalAirport(sydAirport)
@@ -85,17 +91,22 @@ final class Application {
         flightBoard.addFlight(flightWarToJfk8);
         flightBoard.addFlight(flightJfkToWar9);
         flightBoard.addFlight(flightWarToLon10);
+        flightBoard.addFlight(flightSydToWar11);
 
         final FlightSearchService flightSearchService = new FlightSearchServiceImpl(flightBoard);
-        System.out.printf("*** Lot z %s ***%n", jfkAirport);
+        /**  System.out.printf("*** Lot z %s ***%n", jfkAirport);
         flightSearchService.findAllFlightsFromCity(new FlightSearchRequest(jfkAirport)).forEach(System.out::println);
         System.out.printf("*** Lot do %s ***%n", lonAirport);
         flightSearchService.findAllFlightsToCity(new FlightSearchRequest(lonAirport)).forEach(System.out::println);
         System.out.printf("*** Lot przez %s ***%n", warAirport);
-        flightSearchService.findAllFlightsThroughCity(new FlightSearchRequest(warAirport)).forEach(System.out::println);
+        flightSearchService.findAllFlightsThroughCity(new FlightSearchRequest(warAirport)).forEach(System.out::println); **/
 
-        System.out.printf("*** Lot z %s ***%n", jfkAirport, " do %s ***%n" , lonAirport);
-        flightSearchService.findAllFlightsFromCityToCity(new FlightSearchRequest(jfkAirport, lonAirport)).forEach(System.out::println);
+        System.out.printf("*** Loty bezpośrednie ");
+        flightSearchService.findAllFlightsFromCityToCity(new FlightSearchRequest(jfkAirport, warAirport)).forEach(System.out::println);
+
+        System.out.printf("*** Loty z przesiadką ");
+        flightSearchService.findAllFlightsFromCityToCityThroughCity(new FlightSearchRequest(jfkAirport, warAirport)).forEach(System.out::println);
+
 
     }
 }
