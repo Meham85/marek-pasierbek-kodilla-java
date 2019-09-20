@@ -17,9 +17,17 @@ public class BoardTestSuite {
         String doneTask = "System installation";
 
         // When
-        boolean toDoAddResult = board.addToDoTask(toDoTask);
-        boolean toInProgressResult = board.addInProgressTask(inProgressTask);
-        boolean doneResult = board.addDoneTask(doneTask);
+        boolean toDoAddResult = context.containsBean("taskToDo");
+        boolean toInProgressResult = context.containsBean("taskInProgress");
+        boolean doneResult = context.containsBean("taskDone");
+
+        TaskList toDoTask2 = (TaskList) context.getBean("taskToDo");
+        toDoTask2.addTask("Task to Do");
+        board.addDoneTask()
+        String toDoTask3 = (String)context.getBean("taskToDo");
+        board.addDoneTask(toDoTask3);
+        String toDoTask4 = (String)context.getBean("taskToDo");
+        board.addInProgressTask(toDoTask4);
 
         // Then
         assertTrue(toDoAddResult);
